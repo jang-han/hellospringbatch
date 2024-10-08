@@ -27,6 +27,7 @@ public class SpringConfig {
 	private final JobLauncher jobLauncher;
 	private final JobRepository jobRepository;
 	private final PlatformTransactionManager transactionManager;
+	private final AppConfig appConfig;
 	
 	@Autowired
 	@Qualifier("HelloTasklet1")
@@ -50,10 +51,11 @@ public class SpringConfig {
 	
 	
 	public SpringConfig(JobLauncher jobLauncher, JobRepository jobRepository,
-			PlatformTransactionManager transactionManager) {
+			PlatformTransactionManager transactionManager, AppConfig appConfig) {
 		this.jobLauncher = jobLauncher;
 		this.jobRepository = jobRepository;
 		this.transactionManager = transactionManager;
+		this.appConfig = appConfig; // AppConfig 주입
 	}
 	
 	@Bean
@@ -78,7 +80,7 @@ public class SpringConfig {
 	
 	public Step helloChunkStep() {
 		return new StepBuilder("helloChunkStep", jobRepository)
-				.<String, String>chunk(1, transactionManager)
+				.<String, String>chunk(appConfig.getChunkSize(), transactionManager)
 				.reader(helloReader)
 				.processor(helloProcessorr)
 				.writer(helloWriter)
@@ -88,6 +90,8 @@ public class SpringConfig {
 	
 	@Bean
 	public Job helloJob() {
+		System.out.println("-----");
+		System.out.println(appConfig.getApplicationName());
 		return new JobBuilder("helloJob", jobRepository)
 				.incrementer(new RunIdIncrementer())
 				.start(helloTaskletStep1())
