@@ -1,0 +1,21 @@
+<configuration>
+  
+  <property name="logDir" value="C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\log\" />
+  <property name="fileName" value="hellolog" />
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}${fileName}.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>10</maxHistory>
+    </rollingPolicy>
+    
+    <encoder>
+      <pattern>%d %level %m %n</pattern>
+    </encoder>
+   </appender>
+
+  <root level="INFO">
+    <appender-ref ref="FILE" />
+  </root>
+  
+</configuration>
