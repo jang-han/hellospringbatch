@@ -1,5 +1,11 @@
 package com.example.demo.tasklet;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.batch.core.StepContribution;
@@ -64,6 +70,46 @@ public class HelloTasklet1 implements Tasklet {
         }
         
 
+        
+        
+        
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String username = "postgres";
+        String password = "Root1234!";
+        
+        List<UserInfo> userInfoList1 = new ArrayList<>();
+
+        // PostgreSQL에 직접 연결
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Connected to PostgreSQL database!");
+
+            // 쿼리를 실행하고 결과를 처리
+            String query = "SELECT name, email FROM userinfo";
+            try (Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(query)) {
+
+                while (resultSet.next()) {
+                    UserInfo userInfo = new UserInfo();
+                    userInfo.setName(resultSet.getString("name"));
+                    userInfo.setEmail(resultSet.getString("email"));
+                    userInfoList1.add(userInfo);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // 가져온 데이터 출력
+        userInfoList1.forEach(userInfo -> System.out.println("User Info: " + userInfo));
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
 		ExecutionContext jobContext = contribution.getStepExecution()
 				.getJobExecution()
