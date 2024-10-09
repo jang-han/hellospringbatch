@@ -34,11 +34,17 @@ public class AppConfig {
 	private String postgresDriverClassname;
 	
 	
-	@Value("${app.input}")
-	private String input;
+	@Value("${app.csv.input}")
+	private String csvInput;
 	
-	@Value("${app.output}")
-	private String output;
+	@Value("${app.csv.output.ok}")
+	private String csvOutputOk;
+	
+	@Value("${app.csv.output.ng}")
+	private String csvOutputNg;
+	
+	@Value("${app.csv.backup}")
+	private String csvBackup;
 	
 	@Value("${batch.process.chunk.size}")
     private int chunkSize;
@@ -79,12 +85,20 @@ public class AppConfig {
 		return postgresDriverClassname;
 	}
 	
-	public String getInput() {
-		return input;
+	public String getCsvInput() {
+		return csvInput;
 	}
 	
-	public String getOutput() {
-		return output;
+	public String getCsvOutputOk() {
+		return csvOutputOk;
+	}
+	
+	public String getCsvOutputNg() {
+		return csvOutputNg;
+	}
+	
+	public String getCsvBackup() {
+		return csvBackup;
 	}
 	
 	public int getChunkSize() {

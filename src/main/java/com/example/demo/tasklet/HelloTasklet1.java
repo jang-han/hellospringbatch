@@ -1,11 +1,5 @@
 package com.example.demo.tasklet;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.batch.core.StepContribution;
@@ -20,6 +14,7 @@ import org.springframework.stereotype.Component;
 import com.example.demo.config.AppConfig;
 import com.example.demo.model.UserInfo;
 import com.example.demo.repository.UserInfoRepository;
+import com.example.demo.service.UserInfoService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,18 +27,21 @@ public class HelloTasklet1 implements Tasklet {
 	private String param1;
 	@Value("#{jobParameters['param2']}")
 	private String param2;
-	private AppConfig appConfig; // AppConfig 주입
+	private AppConfig appConfig;
 	private final UserInfoRepository userInfoRepository;
+	private final UserInfoService userInfoService;
 
 	// 생성자 주입 사용
 	public HelloTasklet1(@Value("#{jobParameters['param1']}") String param1,
 			@Value("#{jobParameters['param2']}") String param2,
 			AppConfig appConfig,
-			UserInfoRepository userInfoRepository) {
+			UserInfoRepository userInfoRepository,
+			UserInfoService userInfoService) {
 		this.param1 = param1;
 		this.param2 = param2;
 		this.appConfig = appConfig;
 		this.userInfoRepository = userInfoRepository;
+		this.userInfoService = userInfoService;
 	}
 
 	@Override
@@ -70,45 +68,10 @@ public class HelloTasklet1 implements Tasklet {
         }
         
 
-        
-        
-        
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String username = "postgres";
-        String password = "Root1234!";
-        
-        List<UserInfo> userInfoList1 = new ArrayList<>();
 
-        // PostgreSQL에 직접 연결
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
-            System.out.println("Connected to PostgreSQL database!");
-
-            // 쿼리를 실행하고 결과를 처리
-            String query = "SELECT name, email FROM userinfo";
-            try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(query)) {
-
-                while (resultSet.next()) {
-                    UserInfo userInfo = new UserInfo();
-                    userInfo.setName(resultSet.getString("name"));
-                    userInfo.setEmail(resultSet.getString("email"));
-                    userInfoList1.add(userInfo);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        List<UserInfo> userInfoList1 = userInfoService.fetchAllUserInfo();
         // 가져온 데이터 출력
         userInfoList1.forEach(userInfo -> System.out.println("User Info: " + userInfo));
-        
-        
-        
-        
-        
-        
-        
-        
         
         
 		ExecutionContext jobContext = contribution.getStepExecution()
