@@ -1,0 +1,10 @@
+2024-10-10 23:47:41,605 ERROR com.example.demo.dataError - データ不一致 - 名前: 近藤健二, メール: kenji@example.com
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - データ不一致 - 名前: 安藤さくら, メール: sakura@example.com
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - データ不一致 - 名前: 加藤浩一, メール: koichi@example.com
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - データ不一致 - 名前: 井上真央, メール: mao@example.com
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - データ不一致 - 名前: 西村春樹, メール: haruki@example.com
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - NGデータ - フォーマットが不正です: 柴田陽子,yoko@example.com,,
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - NGデータ - フォーマットが不正です: 石井大和,yamato@example.com,,
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - NGデータ - フォーマットが不正です: 宮本春菜,haruna@example.com,,
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - NGデータ - フォーマットが不正です: 木村亮介,ryosuke@example.com,,
+2024-10-10 23:47:41,606 ERROR com.example.demo.dataError - NGデータ - フォーマットが不正です: 林健太,kenta@example.com,,

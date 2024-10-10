@@ -1,21 +1,42 @@
 <configuration>
-  
-  <property name="logDir" value="C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\log\" />
+  <!-- 로그 디렉토리 및 기본 파일 이름 설정 -->
+  <property name="logDir" value="C:/pleiades-2024-06-java-win-64bit-jre_20240626/workspace/hello-spring-batch/log/" />
   <property name="fileName" value="hellolog" />
+  <property name="dataErrorFileName" value="dataErrorLog" />
 
-  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+  <!-- 일반 처리 및 에러 로그 파일 설정 -->
+  <appender name="GENERAL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>${logDir}${fileName}.%d{yyyy-MM-dd}.log</fileNamePattern>
-      <maxHistory>10</maxHistory>
+      <maxHistory>365</maxHistory> <!-- 365일 보관 -->
     </rollingPolicy>
-    
     <encoder>
-      <pattern>%d %level %m %n</pattern>
+      <pattern>%d %-5level %logger{36} - %msg%n</pattern>
     </encoder>
-   </appender>
+  </appender>
+
+  <!-- 데이터 NG 전용 로그 파일 설정 -->
+  <appender name="DATA_ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}${dataErrorFileName}.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>365</maxHistory> <!-- 365일 보관 -->
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- 로거 설정 -->
+  <logger name="com.example.demo" level="INFO" additivity="false">
+    <appender-ref ref="GENERAL_FILE" />
+  </logger>
+
+  <!-- 데이터 NG 전용 로거 설정 -->
+  <logger name="com.example.demo.dataError" level="ERROR" additivity="false">
+    <appender-ref ref="DATA_ERROR_FILE" />
+  </logger>
 
   <root level="INFO">
-    <appender-ref ref="FILE" />
+    <appender-ref ref="GENERAL_FILE" />
   </root>
-  
 </configuration>

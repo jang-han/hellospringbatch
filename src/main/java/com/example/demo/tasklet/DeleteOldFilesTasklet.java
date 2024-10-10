@@ -1,6 +1,7 @@
 package com.example.demo.tasklet;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -9,6 +10,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.scope.context.ChunkContext;
@@ -23,12 +26,14 @@ import com.example.demo.config.AppConfig;
 @StepScope
 public class DeleteOldFilesTasklet implements Tasklet {
 
-	private AppConfig appConfig;
-	
-	@Autowired
-	public DeleteOldFilesTasklet(AppConfig appConfig) {
-		this.appConfig = appConfig;
-	}
+    private static final Logger logger = LoggerFactory.getLogger(DeleteOldFilesTasklet.class);
+    
+    private final AppConfig appConfig;
+
+    @Autowired
+    public DeleteOldFilesTasklet(AppConfig appConfig) {
+        this.appConfig = appConfig;
+    }
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
@@ -39,7 +44,7 @@ public class DeleteOldFilesTasklet implements Tasklet {
                 appConfig.getCsvOutputNg(),
                 appConfig.getCsvBackup()
         );
-        
+
         for (String dirPath : directories) {
             File directory = new File(dirPath);
 
@@ -48,22 +53,26 @@ public class DeleteOldFilesTasklet implements Tasklet {
 
                 if (files != null) {
                     for (File file : files) {
-                        Path filePath = file.toPath();
-                        BasicFileAttributes attr = Files.readAttributes(filePath, BasicFileAttributes.class);
-                        Instant fileLastModified = attr.lastModifiedTime().toInstant();
+                        try {
+                            Path filePath = file.toPath();
+                            BasicFileAttributes attr = Files.readAttributes(filePath, BasicFileAttributes.class);
+                            Instant fileLastModified = attr.lastModifiedTime().toInstant();
 
-                        if (fileLastModified.isBefore(oneYearAgo)) {
-                            boolean deleted = file.delete();
-                            if (deleted) {
-                                System.out.println("Deleted old file: " + file.getAbsolutePath());
-                            } else {
-                                System.out.println("Failed to delete file: " + file.getAbsolutePath());
+                            if (fileLastModified.isBefore(oneYearAgo)) {
+                                boolean deleted = file.delete();
+                                if (deleted) {
+                                    logger.info("古いファイルを削除しました: {}", file.getAbsolutePath());
+                                } else {
+                                    logger.warn("ファイルの削除に失敗しました（権限の問題かファイル使用中）: {}", file.getAbsolutePath());
+                                }
                             }
+                        } catch (IOException e) {
+                            logger.error("ファイル属性の読み取りエラー: {}", file.getAbsolutePath(), e);
                         }
                     }
                 }
             } else {
-                System.out.println("Directory not found or is not a directory: " + dirPath);
+                logger.warn("ディレクトリが存在しないかアクセスできません: {}", dirPath);
             }
         }
 

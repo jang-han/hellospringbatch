@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.example.demo.listener.JobLoggingListener;
+import com.example.demo.listener.StepLoggingListener;
+
 @Configuration
 public class SpringConfig {
 
@@ -21,6 +24,8 @@ public class SpringConfig {
 	private final JobRepository jobRepository;
 	private final PlatformTransactionManager transactionManager;
 	private final AppConfig appConfig;
+	private final JobLoggingListener jobLoggingListener;
+    private final StepLoggingListener stepLoggingListener;
 	
 	@Autowired
 	@Qualifier("DeleteOldFilesTasklet")
@@ -39,17 +44,21 @@ public class SpringConfig {
 	private Tasklet csvToPostgresTasklet;
 	
 	public SpringConfig(JobLauncher jobLauncher, JobRepository jobRepository,
-			PlatformTransactionManager transactionManager, AppConfig appConfig) {
+			PlatformTransactionManager transactionManager, AppConfig appConfig,
+			JobLoggingListener jobLoggingListener, StepLoggingListener stepLoggingListener) {
 		this.jobLauncher = jobLauncher;
 		this.jobRepository = jobRepository;
 		this.transactionManager = transactionManager;
 		this.appConfig = appConfig;
+		this.jobLoggingListener = jobLoggingListener;
+        this.stepLoggingListener = stepLoggingListener;
 	}
 	
 	@Bean
 	public Step deleteOldFilesTaskletStep() {
 		return new StepBuilder("deleteOldFilesTaskletStep", jobRepository)
 				.tasklet(deleteOldFilesTasklet, transactionManager)
+				.listener(stepLoggingListener)
 				.build();
 	}
 	
@@ -57,6 +66,7 @@ public class SpringConfig {
 	public Step csvFileCheckAndMoveTaskletStep() {
 		return new StepBuilder("csvFileCheckAndMoveTaskletStep", jobRepository)
 				.tasklet(csvFileCheckAndMoveTasklet, transactionManager)
+				.listener(stepLoggingListener)
 				.build();
 	}
 	
@@ -64,6 +74,7 @@ public class SpringConfig {
 	public Step csvCompareAndWriteTaskletStep() {
 		return new StepBuilder("csvCompareAndWriteTaskletStep", jobRepository)
 				.tasklet(csvCompareAndWriteTasklet, transactionManager)
+				.listener(stepLoggingListener)
 				.build();
 	}
 	
@@ -71,6 +82,7 @@ public class SpringConfig {
 	public Step csvToPostgresTaskletStep() {
 		return new StepBuilder("csvToPostgresTaskletStep", jobRepository)
 				.tasklet(csvToPostgresTasklet, transactionManager)
+				.listener(stepLoggingListener)
 				.build();
 	}
 	
@@ -80,6 +92,7 @@ public class SpringConfig {
 		System.out.println(appConfig.getApplicationName());
 		return new JobBuilder("helloJob", jobRepository)
 				.incrementer(new RunIdIncrementer())
+				.listener(jobLoggingListener)
 				.start(deleteOldFilesTaskletStep())
 				.next(csvFileCheckAndMoveTaskletStep())
 				.next(csvCompareAndWriteTaskletStep())

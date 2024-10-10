@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.scope.context.ChunkContext;
@@ -25,6 +27,7 @@ import com.example.demo.repository.postgres.MedicalOpinionPostgresRepository;
 @StepScope
 public class CsvToPostgresTasklet implements Tasklet {
 
+    private static final Logger logger = LoggerFactory.getLogger(CsvToPostgresTasklet.class);
     private final AppConfig appConfig;
     private final MedicalOpinionPostgresRepository medicalOpinionRepository;
 
@@ -36,73 +39,75 @@ public class CsvToPostgresTasklet implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-        System.out.println("-- CsvToPostgresTasklet start -- ");
+        logger.info("CsvToPostgresTasklet 処理を開始します。");
 
         String okFilePath = getOkFilePath();
         File okFile = new File(okFilePath);
 
         if (!okFile.exists()) {
-            System.out.println("OK CSV 파일이 존재하지 않습니다.");
+            logger.warn("OK CSV ファイルが存在しません: {}", okFilePath);
             return RepeatStatus.FINISHED;
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(okFile))) {
             String line;
-            boolean isFirstLine = true; // 첫 번째 줄 스킵용
+            boolean isFirstLine = true;
 
             while ((line = reader.readLine()) != null) {
-                // 첫 번째 줄은 헤더이므로 건너뜀
                 if (isFirstLine) {
                     isFirstLine = false;
                     continue;
                 }
                 processLine(line);
             }
-            System.out.println("PostgreSQL에 데이터 삽입 및 갱신 완료");
+            logger.info("PostgreSQLへのデータ登録と更新が完了しました。");
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("파일 읽기 오류: " + okFile.getName(), e);
+            logger.error("ファイルの読み込みエラー: {}", okFile.getName(), e);
+            throw new RuntimeException("ファイルの読み込みエラー: " + okFile.getName(), e);
         }
 
         return RepeatStatus.FINISHED;
     }
 
-    // OK 파일 경로를 오늘 날짜 기준으로 설정
     private String getOkFilePath() {
         String today = new SimpleDateFormat("yyyyMMdd").format(new Date());
         return Paths.get(appConfig.getCsvOutputOk(), today + ".ok.csv").toString();
     }
 
-    // 라인별 데이터 처리
     private void processLine(String line) {
         String[] csvData = line.split(",");
-        if (csvData.length < 4) {  // 네 개의 컬럼이 있어야 함
-            System.out.println("잘못된 데이터 형식: " + line);
+        if (csvData.length < 4) {
+            logger.warn("CSV データの形式が不正です: {}", line);
             return;
         }
 
         String name = csvData[0].trim();
         String email = csvData[1].trim();
-        float height = Float.parseFloat(csvData[2].trim());
-        float weight = Float.parseFloat(csvData[3].trim());
+        float height;
+        float weight;
 
-        // 데이터 존재 여부 확인 및 삽입/갱신
+        try {
+            height = Float.parseFloat(csvData[2].trim());
+            weight = Float.parseFloat(csvData[3].trim());
+        } catch (NumberFormatException e) {
+            logger.error("身長または体重の形式が不正です: {}", line, e);
+            return;
+        }
+
         MedicalOpinionPostgres existingRecord = medicalOpinionRepository.findByNameAndEmail(name, email);
         if (existingRecord != null) {
-            // 같은 이름과 이메일이 존재할 경우 키와 몸무게를 갱신
             existingRecord.setHeight(height);
             existingRecord.setWeight(weight);
             medicalOpinionRepository.save(existingRecord);
-            System.out.println("기존 의견서 갱신: " + name);
+            logger.info("既存のレコードを更新しました: {}", name);
         } else {
-            // 새 레코드를 추가
             MedicalOpinionPostgres newRecord = new MedicalOpinionPostgres();
             newRecord.setName(name);
             newRecord.setEmail(email);
             newRecord.setHeight(height);
             newRecord.setWeight(weight);
             medicalOpinionRepository.save(newRecord);
-            System.out.println("새 의견서 추가: " + name);
+            logger.info("新しいレコードを追加しました: {}", name);
         }
     }
 }

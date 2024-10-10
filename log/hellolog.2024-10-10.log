@@ -4992,3 +4992,272 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2024-10-10 22:45:42,908 INFO Closing JPA EntityManagerFactory for persistence unit 'mysqlPU' 
 2024-10-10 22:45:42,909 INFO HikariPool-1 - Shutdown initiated... 
 2024-10-10 22:45:42,924 INFO HikariPool-1 - Shutdown completed. 
+2024-10-10 23:03:59,251 INFO Starting HelloSpringBatchApplication using Java 21.0.3 with PID 4048 (C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\target\classes started by hanjangyeon in C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch) 
+2024-10-10 23:03:59,253 INFO No active profile set, falling back to 1 default profile: "default" 
+2024-10-10 23:03:59,766 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-10-10 23:03:59,817 INFO Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interface. 
+2024-10-10 23:03:59,819 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-10-10 23:03:59,830 INFO Finished Spring Data repository scanning in 10 ms. Found 2 JPA repository interfaces. 
+2024-10-10 23:04:00,284 WARN Bean 'dataSourceConfig' of type [com.example.demo.config.DataSourceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,294 WARN Bean 'mysqlDataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,304 WARN Bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration' of type [org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,318 WARN Bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties' of type [org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,323 WARN Bean 'dataSourceScriptDatabaseInitializer' of type [org.springframework.boot.autoconfigure.sql.init.SqlDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,324 WARN Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,327 WARN Bean 'spring.batch-org.springframework.boot.autoconfigure.batch.BatchProperties' of type [org.springframework.boot.autoconfigure.batch.BatchProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,336 INFO HikariPool-1 - Starting... 
+2024-10-10 23:04:00,683 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2954f6ab 
+2024-10-10 23:04:00,685 INFO HikariPool-1 - Start completed. 
+2024-10-10 23:04:00,705 WARN Bean 'batchDataSourceInitializer' of type [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,710 WARN Bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.JpaProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,712 WARN Bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,715 WARN Bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,716 WARN Bean 'hikariPoolDataSourceMetadataProvider' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$Lambda/0x00000188a439f868] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,719 WARN Bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,735 WARN Bean 'jpaVendorAdapter' of type [org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,738 WARN Bean 'entityManagerFactoryBuilder' of type [org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:00,769 INFO HHH000204: Processing PersistenceUnitInfo [name: mysqlPU] 
+2024-10-10 23:04:00,829 INFO HHH000412: Hibernate ORM core version 6.5.2.Final 
+2024-10-10 23:04:00,871 INFO HHH000026: Second-level cache disabled 
+2024-10-10 23:04:01,379 INFO No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-10-10 23:04:02,398 INFO HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-10-10 23:04:02,402 INFO Initialized JPA EntityManagerFactory for persistence unit 'mysqlPU' 
+2024-10-10 23:04:02,406 WARN Bean 'mysqlEntityManagerFactory' of type [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:02,407 WARN Bean 'mysqlEntityManagerFactory' of type [jdk.proxy2.$Proxy98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:02,417 WARN Bean 'mysqlTransactionManager' of type [org.springframework.orm.jpa.JpaTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:04:02,424 WARN Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [jobRegistryBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead. 
+2024-10-10 23:04:02,433 INFO HHH000204: Processing PersistenceUnitInfo [name: postgresPU] 
+2024-10-10 23:04:02,437 INFO HHH000026: Second-level cache disabled 
+2024-10-10 23:04:02,475 INFO No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-10-10 23:04:02,477 INFO HikariPool-2 - Starting... 
+2024-10-10 23:04:02,659 INFO HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1be427b4 
+2024-10-10 23:04:02,660 INFO HikariPool-2 - Start completed. 
+2024-10-10 23:04:02,780 INFO HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-10-10 23:04:02,781 INFO Initialized JPA EntityManagerFactory for persistence unit 'postgresPU' 
+2024-10-10 23:04:03,528 INFO Started HelloSpringBatchApplication in 4.673 seconds (process running for 5.81) 
+2024-10-10 23:04:03,532 INFO Running default command line with: [] 
+2024-10-10 23:04:03,660 INFO Job: [SimpleJob: [name=helloJob]] launched with the following parameters: [{'run.id':'{value=88, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}] 
+2024-10-10 23:04:03,725 INFO Executing step: [deleteOldFilesTaskletStep] 
+2024-10-10 23:04:03,783 INFO Step: [deleteOldFilesTaskletStep] executed in 56ms 
+2024-10-10 23:04:03,847 INFO Executing step: [csvFileCheckAndMoveTaskletStep] 
+2024-10-10 23:04:03,898 INFO CSVファイルがバックアップフォルダに移動されました: 20241009.csv 
+2024-10-10 23:04:03,923 INFO Step: [csvFileCheckAndMoveTaskletStep] executed in 75ms 
+2024-10-10 23:04:03,979 INFO Executing step: [csvCompareAndWriteTaskletStep] 
+2024-10-10 23:04:04,125 WARN データ不一致 - 名前: 近藤健二, メール: kenji@example.com 
+2024-10-10 23:04:04,125 WARN データ不一致 - 名前: 安藤さくら, メール: sakura@example.com 
+2024-10-10 23:04:04,125 WARN データ不一致 - 名前: 加藤浩一, メール: koichi@example.com 
+2024-10-10 23:04:04,125 WARN データ不一致 - 名前: 井上真央, メール: mao@example.com 
+2024-10-10 23:04:04,125 WARN データ不一致 - 名前: 西村春樹, メール: haruki@example.com 
+2024-10-10 23:04:04,125 WARN 不正なデータフォーマット: 柴田陽子,yoko@example.com,, 
+2024-10-10 23:04:04,125 WARN 不正なデータフォーマット: 石井大和,yamato@example.com,, 
+2024-10-10 23:04:04,125 WARN 不正なデータフォーマット: 宮本春菜,haruna@example.com,, 
+2024-10-10 23:04:04,125 WARN 不正なデータフォーマット: 木村亮介,ryosuke@example.com,, 
+2024-10-10 23:04:04,126 WARN 不正なデータフォーマット: 林健太,kenta@example.com,, 
+2024-10-10 23:04:04,151 INFO Step: [csvCompareAndWriteTaskletStep] executed in 172ms 
+2024-10-10 23:04:04,203 INFO Executing step: [csvToPostgresTaskletStep] 
+2024-10-10 23:04:04,228 INFO CsvToPostgresTasklet 処理を開始します。 
+2024-10-10 23:04:04,278 INFO 既存のレコードを更新しました: 山田花子 
+2024-10-10 23:04:04,282 INFO 既存のレコードを更新しました: 佐藤健一 
+2024-10-10 23:04:04,301 INFO 既存のレコードを更新しました: 高橋一郎 
+2024-10-10 23:04:04,306 INFO 既存のレコードを更新しました: 鈴木浩二 
+2024-10-10 23:04:04,311 INFO 既存のレコードを更新しました: 田中愛 
+2024-10-10 23:04:04,316 INFO 既存のレコードを更新しました: 中村翔太 
+2024-10-10 23:04:04,321 INFO 既存のレコードを更新しました: 小林裕子 
+2024-10-10 23:04:04,326 INFO 既存のレコードを更新しました: 斎藤大輔 
+2024-10-10 23:04:04,330 INFO 既存のレコードを更新しました: 藤本美咲 
+2024-10-10 23:04:04,335 INFO 既存のレコードを更新しました: 吉田隆 
+2024-10-10 23:04:04,335 INFO PostgreSQLへのデータ登録と更新が完了しました。 
+2024-10-10 23:04:04,350 INFO Step: [csvToPostgresTaskletStep] executed in 146ms 
+2024-10-10 23:04:04,371 INFO Job: [SimpleJob: [name=helloJob]] completed with the following parameters: [{'run.id':'{value=88, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 684ms 
+2024-10-10 23:04:04,375 INFO Closing JPA EntityManagerFactory for persistence unit 'postgresPU' 
+2024-10-10 23:04:04,376 INFO HikariPool-2 - Shutdown initiated... 
+2024-10-10 23:04:04,390 INFO HikariPool-2 - Shutdown completed. 
+2024-10-10 23:04:04,392 INFO Closing JPA EntityManagerFactory for persistence unit 'mysqlPU' 
+2024-10-10 23:04:04,392 INFO HikariPool-1 - Shutdown initiated... 
+2024-10-10 23:04:04,406 INFO HikariPool-1 - Shutdown completed. 
+2024-10-10 23:35:49,617 INFO Starting HelloSpringBatchApplication using Java 21.0.3 with PID 6768 (C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\target\classes started by hanjangyeon in C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch) 
+2024-10-10 23:35:49,619 INFO No active profile set, falling back to 1 default profile: "default" 
+2024-10-10 23:35:50,016 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-10-10 23:35:50,065 INFO Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interface. 
+2024-10-10 23:35:50,066 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-10-10 23:35:50,077 INFO Finished Spring Data repository scanning in 10 ms. Found 2 JPA repository interfaces. 
+2024-10-10 23:35:50,483 WARN Bean 'dataSourceConfig' of type [com.example.demo.config.DataSourceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,495 WARN Bean 'mysqlDataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,506 WARN Bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration' of type [org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,523 WARN Bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties' of type [org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,527 WARN Bean 'dataSourceScriptDatabaseInitializer' of type [org.springframework.boot.autoconfigure.sql.init.SqlDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,528 WARN Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,532 WARN Bean 'spring.batch-org.springframework.boot.autoconfigure.batch.BatchProperties' of type [org.springframework.boot.autoconfigure.batch.BatchProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,541 INFO HikariPool-1 - Starting... 
+2024-10-10 23:35:50,887 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fff46bf 
+2024-10-10 23:35:50,889 INFO HikariPool-1 - Start completed. 
+2024-10-10 23:35:50,908 WARN Bean 'batchDataSourceInitializer' of type [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,913 WARN Bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.JpaProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,915 WARN Bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,918 WARN Bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,919 WARN Bean 'hikariPoolDataSourceMetadataProvider' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$Lambda/0x000001ecd13de3f8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,922 WARN Bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,936 WARN Bean 'jpaVendorAdapter' of type [org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,938 WARN Bean 'entityManagerFactoryBuilder' of type [org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:50,973 INFO HHH000204: Processing PersistenceUnitInfo [name: mysqlPU] 
+2024-10-10 23:35:51,043 INFO HHH000412: Hibernate ORM core version 6.5.2.Final 
+2024-10-10 23:35:51,080 INFO HHH000026: Second-level cache disabled 
+2024-10-10 23:35:51,607 INFO No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-10-10 23:35:52,771 INFO HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-10-10 23:35:52,774 INFO Initialized JPA EntityManagerFactory for persistence unit 'mysqlPU' 
+2024-10-10 23:35:52,778 WARN Bean 'mysqlEntityManagerFactory' of type [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:52,778 WARN Bean 'mysqlEntityManagerFactory' of type [jdk.proxy2.$Proxy98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:52,784 WARN Bean 'mysqlTransactionManager' of type [org.springframework.orm.jpa.JpaTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies. 
+2024-10-10 23:35:52,791 WARN Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [jobRegistryBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead. 
+2024-10-10 23:35:52,798 INFO HHH000204: Processing PersistenceUnitInfo [name: postgresPU] 
+2024-10-10 23:35:52,803 INFO HHH000026: Second-level cache disabled 
+2024-10-10 23:35:52,837 INFO No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-10-10 23:35:52,838 INFO HikariPool-2 - Starting... 
+2024-10-10 23:35:53,083 INFO HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@27575bcd 
+2024-10-10 23:35:53,084 INFO HikariPool-2 - Start completed. 
+2024-10-10 23:35:53,189 INFO HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-10-10 23:35:53,189 INFO Initialized JPA EntityManagerFactory for persistence unit 'postgresPU' 
+2024-10-10 23:35:53,994 INFO Started HelloSpringBatchApplication in 4.753 seconds (process running for 5.796) 
+2024-10-10 23:35:53,999 INFO Running default command line with: [] 
+2024-10-10 23:35:54,127 INFO Job: [SimpleJob: [name=helloJob]] launched with the following parameters: [{'run.id':'{value=89, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}] 
+2024-10-10 23:35:54,154 INFO ジョブを開始しました - ジョブID: 93 
+2024-10-10 23:35:54,182 INFO Executing step: [deleteOldFilesTaskletStep] 
+2024-10-10 23:35:54,199 INFO タスクを開始しました - タスク名: deleteOldFilesTaskletStep 
+2024-10-10 23:35:54,233 INFO タスクが終了しました - タスク名: deleteOldFilesTaskletStep, 所要時間: 0秒 
+2024-10-10 23:35:54,238 INFO Step: [deleteOldFilesTaskletStep] executed in 53ms 
+2024-10-10 23:35:54,297 INFO Executing step: [csvFileCheckAndMoveTaskletStep] 
+2024-10-10 23:35:54,312 INFO タスクを開始しました - タスク名: csvFileCheckAndMoveTaskletStep 
+2024-10-10 23:35:54,326 INFO CSVファイルがバックアップフォルダに移動されました: 20241009.csv 
+2024-10-10 23:35:54,345 INFO タスクが終了しました - タスク名: csvFileCheckAndMoveTaskletStep, 所要時間: 0秒 
+2024-10-10 23:35:54,347 INFO Step: [csvFileCheckAndMoveTaskletStep] executed in 49ms 
+2024-10-10 23:35:54,398 INFO Executing step: [csvCompareAndWriteTaskletStep] 
+2024-10-10 23:35:54,408 INFO タスクを開始しました - タスク名: csvCompareAndWriteTaskletStep 
+2024-10-10 23:35:54,538 WARN データ不一致 - 名前: 近藤健二, メール: kenji@example.com 
+2024-10-10 23:35:54,538 WARN データ不一致 - 名前: 安藤さくら, メール: sakura@example.com 
+2024-10-10 23:35:54,538 WARN データ不一致 - 名前: 加藤浩一, メール: koichi@example.com 
+2024-10-10 23:35:54,539 WARN データ不一致 - 名前: 井上真央, メール: mao@example.com 
+2024-10-10 23:35:54,539 WARN データ不一致 - 名前: 西村春樹, メール: haruki@example.com 
+2024-10-10 23:35:54,539 WARN 不正なデータフォーマット: 柴田陽子,yoko@example.com,, 
+2024-10-10 23:35:54,539 WARN 不正なデータフォーマット: 石井大和,yamato@example.com,, 
+2024-10-10 23:35:54,539 WARN 不正なデータフォーマット: 宮本春菜,haruna@example.com,, 
+2024-10-10 23:35:54,539 WARN 不正なデータフォーマット: 木村亮介,ryosuke@example.com,, 
+2024-10-10 23:35:54,539 WARN 不正なデータフォーマット: 林健太,kenta@example.com,, 
+2024-10-10 23:35:54,561 INFO タスクが終了しました - タスク名: csvCompareAndWriteTaskletStep, 所要時間: 0秒 
+2024-10-10 23:35:54,564 INFO Step: [csvCompareAndWriteTaskletStep] executed in 165ms 
+2024-10-10 23:35:54,623 INFO Executing step: [csvToPostgresTaskletStep] 
+2024-10-10 23:35:54,648 INFO タスクを開始しました - タスク名: csvToPostgresTaskletStep 
+2024-10-10 23:35:54,663 INFO CsvToPostgresTasklet 処理を開始します。 
+2024-10-10 23:35:54,716 INFO 既存のレコードを更新しました: 山田花子 
+2024-10-10 23:35:54,723 INFO 既存のレコードを更新しました: 佐藤健一 
+2024-10-10 23:35:54,751 INFO 既存のレコードを更新しました: 高橋一郎 
+2024-10-10 23:35:54,757 INFO 既存のレコードを更新しました: 鈴木浩二 
+2024-10-10 23:35:54,771 INFO 既存のレコードを更新しました: 田中愛 
+2024-10-10 23:35:54,795 INFO 新しいレコードを追加しました: 中村翔太 
+2024-10-10 23:35:54,802 INFO 新しいレコードを追加しました: 小林裕子 
+2024-10-10 23:35:54,808 INFO 新しいレコードを追加しました: 斎藤大輔 
+2024-10-10 23:35:54,814 INFO 新しいレコードを追加しました: 藤本美咲 
+2024-10-10 23:35:54,819 INFO 新しいレコードを追加しました: 吉田隆 
+2024-10-10 23:35:54,819 INFO PostgreSQLへのデータ登録と更新が完了しました。 
+2024-10-10 23:35:54,835 INFO タスクが終了しました - タスク名: csvToPostgresTaskletStep, 所要時間: 0秒 
+2024-10-10 23:35:54,837 INFO Step: [csvToPostgresTaskletStep] executed in 212ms 
+2024-10-10 23:35:54,862 INFO ジョブが終了しました - ジョブID: 93, 所要時間: 0秒 
+2024-10-10 23:35:54,881 INFO Job: [SimpleJob: [name=helloJob]] completed with the following parameters: [{'run.id':'{value=89, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 721ms 
+2024-10-10 23:35:54,903 INFO Closing JPA EntityManagerFactory for persistence unit 'postgresPU' 
+2024-10-10 23:35:54,905 INFO HikariPool-2 - Shutdown initiated... 
+2024-10-10 23:35:54,930 INFO HikariPool-2 - Shutdown completed. 
+2024-10-10 23:35:54,930 INFO Closing JPA EntityManagerFactory for persistence unit 'mysqlPU' 
+2024-10-10 23:35:54,931 INFO HikariPool-1 - Shutdown initiated... 
+2024-10-10 23:35:54,976 INFO HikariPool-1 - Shutdown completed. 
+2024-10-10 23:47:36,734 INFO  c.e.demo.HelloSpringBatchApplication - Starting HelloSpringBatchApplication using Java 21.0.3 with PID 9952 (C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\target\classes started by hanjangyeon in C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch)
+2024-10-10 23:47:36,737 INFO  c.e.demo.HelloSpringBatchApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 23:47:37,198 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-10 23:47:37,249 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
+2024-10-10 23:47:37,251 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-10 23:47:37,268 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2024-10-10 23:47:37,721 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSourceConfig' of type [com.example.demo.config.DataSourceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,733 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mysqlDataSource' of type [com.zaxxer.hikari.HikariDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,744 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration' of type [org.springframework.boot.autoconfigure.sql.init.DataSourceInitializationConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,761 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties' of type [org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,765 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSourceScriptDatabaseInitializer' of type [org.springframework.boot.autoconfigure.sql.init.SqlDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,767 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$DataSourceInitializerConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,769 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.batch-org.springframework.boot.autoconfigure.batch.BatchProperties' of type [org.springframework.boot.autoconfigure.batch.BatchProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:37,779 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-10-10 23:47:38,178 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64c781a9
+2024-10-10 23:47:38,180 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-10-10 23:47:38,203 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'batchDataSourceInitializer' of type [org.springframework.boot.autoconfigure.batch.BatchDataSourceScriptDatabaseInitializer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,209 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.jpa-org.springframework.boot.autoconfigure.orm.jpa.JpaProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.JpaProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,211 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.jpa.hibernate-org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,215 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,216 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'hikariPoolDataSourceMetadataProvider' of type [org.springframework.boot.autoconfigure.jdbc.metadata.DataSourcePoolMetadataProvidersConfiguration$HikariPoolDataSourceMetadataProviderConfiguration$$Lambda/0x000002d657404458] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,220 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration' of type [org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,237 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jpaVendorAdapter' of type [org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,241 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'entityManagerFactoryBuilder' of type [org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:38,276 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: mysqlPU]
+2024-10-10 23:47:38,341 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-10 23:47:38,397 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-10 23:47:38,842 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-10 23:47:39,951 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-10 23:47:39,954 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'mysqlPU'
+2024-10-10 23:47:39,957 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mysqlEntityManagerFactory' of type [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:39,958 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mysqlEntityManagerFactory' of type [jdk.proxy2.$Proxy98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:39,964 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'mysqlTransactionManager' of type [org.springframework.orm.jpa.JpaTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-10 23:47:39,970 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration' of type [org.springframework.boot.autoconfigure.batch.BatchAutoConfiguration$SpringBootBatchConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [jobRegistryBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-10 23:47:39,977 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: postgresPU]
+2024-10-10 23:47:39,981 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-10-10 23:47:40,017 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-10 23:47:40,018 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-10-10 23:47:40,196 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@558aa1f1
+2024-10-10 23:47:40,196 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-10-10 23:47:40,322 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-10 23:47:40,322 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'postgresPU'
+2024-10-10 23:47:41,090 INFO  c.e.demo.HelloSpringBatchApplication - Started HelloSpringBatchApplication in 4.745 seconds (process running for 5.979)
+2024-10-10 23:47:41,094 INFO  o.s.b.a.b.JobLauncherApplicationRunner - Running default command line with: []
+2024-10-10 23:47:41,216 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=helloJob]] launched with the following parameters: [{'run.id':'{value=90, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}]
+2024-10-10 23:47:41,246 INFO  c.e.demo.listener.JobLoggingListener - ジョブを開始しました - ジョブID: 94
+2024-10-10 23:47:41,272 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [deleteOldFilesTaskletStep]
+2024-10-10 23:47:41,285 INFO  c.e.d.listener.StepLoggingListener - タスクを開始しました - タスク名: deleteOldFilesTaskletStep
+2024-10-10 23:47:41,316 INFO  c.e.d.listener.StepLoggingListener - タスクが終了しました - タスク名: deleteOldFilesTaskletStep, 所要時間: 0秒
+2024-10-10 23:47:41,321 INFO  o.s.batch.core.step.AbstractStep - Step: [deleteOldFilesTaskletStep] executed in 48ms
+2024-10-10 23:47:41,371 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [csvFileCheckAndMoveTaskletStep]
+2024-10-10 23:47:41,385 INFO  c.e.d.listener.StepLoggingListener - タスクを開始しました - タスク名: csvFileCheckAndMoveTaskletStep
+2024-10-10 23:47:41,398 INFO  c.e.d.t.CsvFileCheckAndMoveTasklet - CSVファイルがバックアップフォルダに移動されました: 20241009.csv
+2024-10-10 23:47:41,410 INFO  c.e.d.listener.StepLoggingListener - タスクが終了しました - タスク名: csvFileCheckAndMoveTaskletStep, 所要時間: 0秒
+2024-10-10 23:47:41,413 INFO  o.s.batch.core.step.AbstractStep - Step: [csvFileCheckAndMoveTaskletStep] executed in 41ms
+2024-10-10 23:47:41,463 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [csvCompareAndWriteTaskletStep]
+2024-10-10 23:47:41,473 INFO  c.e.d.listener.StepLoggingListener - タスクを開始しました - タスク名: csvCompareAndWriteTaskletStep
+2024-10-10 23:47:41,604 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=山田花子, メール=hanako@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=佐藤健一, メール=kenichi@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=高橋一郎, メール=ichiro@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=鈴木浩二, メール=koji@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=田中愛, メール=ai@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=中村翔太, メール=shota@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=小林裕子, メール=yuko@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=斎藤大輔, メール=daisuke@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=藤本美咲, メール=misaki@example.com
+2024-10-10 23:47:41,605 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=吉田隆, メール=takashi@example.com
+2024-10-10 23:47:41,628 INFO  c.e.d.listener.StepLoggingListener - タスクが終了しました - タスク名: csvCompareAndWriteTaskletStep, 所要時間: 0秒
+2024-10-10 23:47:41,631 INFO  o.s.batch.core.step.AbstractStep - Step: [csvCompareAndWriteTaskletStep] executed in 168ms
+2024-10-10 23:47:41,678 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [csvToPostgresTaskletStep]
+2024-10-10 23:47:41,690 INFO  c.e.d.listener.StepLoggingListener - タスクを開始しました - タスク名: csvToPostgresTaskletStep
+2024-10-10 23:47:41,701 INFO  c.e.d.tasklet.CsvToPostgresTasklet - CsvToPostgresTasklet 処理を開始します。
+2024-10-10 23:47:41,766 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 山田花子
+2024-10-10 23:47:41,772 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 佐藤健一
+2024-10-10 23:47:41,775 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 高橋一郎
+2024-10-10 23:47:41,779 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 鈴木浩二
+2024-10-10 23:47:41,784 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 田中愛
+2024-10-10 23:47:41,804 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 既存のレコードを更新しました: 中村翔太
+2024-10-10 23:47:41,810 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 既存のレコードを更新しました: 小林裕子
+2024-10-10 23:47:41,816 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 既存のレコードを更新しました: 斎藤大輔
+2024-10-10 23:47:41,821 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 既存のレコードを更新しました: 藤本美咲
+2024-10-10 23:47:41,826 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 既存のレコードを更新しました: 吉田隆
+2024-10-10 23:47:41,826 INFO  c.e.d.tasklet.CsvToPostgresTasklet - PostgreSQLへのデータ登録と更新が完了しました。
+2024-10-10 23:47:41,836 INFO  c.e.d.listener.StepLoggingListener - タスクが終了しました - タスク名: csvToPostgresTaskletStep, 所要時間: 0秒
+2024-10-10 23:47:41,840 INFO  o.s.batch.core.step.AbstractStep - Step: [csvToPostgresTaskletStep] executed in 161ms
+2024-10-10 23:47:41,853 INFO  c.e.demo.listener.JobLoggingListener - ジョブが終了しました - ジョブID: 94, 所要時間: 0秒
+2024-10-10 23:47:41,862 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [SimpleJob: [name=helloJob]] completed with the following parameters: [{'run.id':'{value=90, type=class java.lang.Long, identifying=true}','param1':'{value=TEST, type=class java.lang.String, identifying=true}','param2':'{value=9999, type=class java.lang.String, identifying=true}'}] and the following status: [COMPLETED] in 622ms
+2024-10-10 23:47:41,866 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'postgresPU'
+2024-10-10 23:47:41,867 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-10-10 23:47:41,879 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-10-10 23:47:41,880 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'mysqlPU'
+2024-10-10 23:47:41,881 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-10-10 23:47:41,898 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

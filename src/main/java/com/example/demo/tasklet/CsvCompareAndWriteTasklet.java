@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.scope.context.ChunkContext;
@@ -26,6 +28,10 @@ import com.example.demo.repository.DataService;
 @Component("csvCompareAndWriteTasklet")
 @StepScope
 public class CsvCompareAndWriteTasklet implements Tasklet {
+
+	private static final Logger logger = LoggerFactory.getLogger(CsvCompareAndWriteTasklet.class);
+    private static final Logger dataErrorLogger = LoggerFactory.getLogger("com.example.demo.dataError");
+
 
     private final AppConfig appConfig;
     private final DataService dataService;
@@ -59,10 +65,15 @@ public class CsvCompareAndWriteTasklet implements Tasklet {
 
             for (String fileName : csvFileNames) {
                 File csvFile = new File(appConfig.getCsvBackup(), fileName);
-                if (!csvFile.exists()) continue;
+                if (!csvFile.exists()) {
+                    logger.warn("CSVファイルが見つかりません: {}", fileName);
+                    continue;
+                }
 
                 try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
                     processFile(reader, okWriter, ngWriter, userInfoList);
+                } catch (IOException e) {
+                    logger.error("CSVファイルの読み取りエラーが発生しました: {}", fileName, e);
                 }
             }
 
@@ -73,24 +84,24 @@ public class CsvCompareAndWriteTasklet implements Tasklet {
             jobContext.put("okFilePath", okFilePath);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("ファイルの処理中にエラーが発生しました", e);
             throw new RuntimeException("Error processing files", e);
         }
         return RepeatStatus.FINISHED;
     }
 
     private void processFile(BufferedReader reader, BufferedWriter okWriter, BufferedWriter ngWriter, List<UserInfoMySQL> userInfoList) throws IOException {
-    	boolean isFirstLine = true;
-    	String line;
+        boolean isFirstLine = true;
+        String line;
         while ((line = reader.readLine()) != null) {
-        	if (isFirstLine) {
+            if (isFirstLine) {
                 isFirstLine = false;
-                continue; // 첫 줄은 건너뜁니다.
+                continue;
             }
-        	
+
             String[] csvData = line.split(",");
             if (csvData.length < 4) {
-                System.out.println("Invalid line in CSV: " + line);
+            	dataErrorLogger.error("NGデータ - フォーマットが不正です: {}", line);
                 writeLine(ngWriter, csvData);
                 continue;
             }
@@ -100,8 +111,9 @@ public class CsvCompareAndWriteTasklet implements Tasklet {
             String height = csvData[2].trim();
             String weight = csvData[3].trim();
 
-            // 키 또는 몸무게가 없는 경우 ng 파일에 기록
+            // 키 또는 몸무게가 없는 경우 NG 파일에 기록
             if (height.isEmpty() || weight.isEmpty()) {
+            	dataErrorLogger.error("データ欠落 - 名前: {}, メール: {}, 身長: {}, 体重: {}", name, email, height, weight);
                 writeLine(ngWriter, name, email, height, weight);
                 continue;
             }
@@ -111,7 +123,9 @@ public class CsvCompareAndWriteTasklet implements Tasklet {
 
             if (matchedInUserInfo) {
                 writeLine(okWriter, name, email, height, weight);
+                logger.info("OKデータ - 有効なデータが検出されました: 名前={}, メール={}", name, email);
             } else {
+            	dataErrorLogger.error("データ不一致 - 名前: {}, メール: {}", name, email);
                 writeLine(ngWriter, name, email, height, weight);
             }
         }
@@ -131,8 +145,7 @@ public class CsvCompareAndWriteTasklet implements Tasklet {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("");
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error creating end file at: " + filePath);
+            logger.error("エンドファイルの作成中にエラーが発生しました: {}", filePath, e);
         }
     }
 }
