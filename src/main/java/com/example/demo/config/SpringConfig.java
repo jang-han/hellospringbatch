@@ -22,14 +22,6 @@ public class SpringConfig {
 	private final PlatformTransactionManager transactionManager;
 	private final AppConfig appConfig;
 	
-//	@Autowired
-//	@Qualifier("HelloTasklet1")
-//	private Tasklet helloTasklet1;
-//	
-//	@Autowired
-//	@Qualifier("HelloTasklet2")
-//	private Tasklet helloTasklet2;
-	
 	@Autowired
 	@Qualifier("DeleteOldFilesTasklet")
 	private Tasklet deleteOldFilesTasklet;
@@ -39,58 +31,20 @@ public class SpringConfig {
 	private Tasklet csvFileCheckAndMoveTasklet;
 	
 	@Autowired
-	@Qualifier("CsvCompareAndWriteTasklet")
+	@Qualifier("csvCompareAndWriteTasklet")
 	private Tasklet csvCompareAndWriteTasklet;
 	
-//	@Autowired
-//	private ItemReader<String> helloReader;
-//
-//	@Autowired
-//	private ItemProcessor<String, String> helloProcessorr;
-//	
-//	@Autowired
-//	private ItemWriter<String> helloWriter;
-	
-//	@Autowired
-//	private JobExecutionListener helloJobExecutionListner;
-	
+	@Autowired
+	@Qualifier("CsvToPostgresTasklet")
+	private Tasklet csvToPostgresTasklet;
 	
 	public SpringConfig(JobLauncher jobLauncher, JobRepository jobRepository,
 			PlatformTransactionManager transactionManager, AppConfig appConfig) {
 		this.jobLauncher = jobLauncher;
 		this.jobRepository = jobRepository;
 		this.transactionManager = transactionManager;
-		this.appConfig = appConfig; // AppConfig 주입
+		this.appConfig = appConfig;
 	}
-	
-//	@Bean
-//	public Step helloTaskletStep1() {
-//		return new StepBuilder("helloTasklet1Step", jobRepository)
-//				.tasklet(helloTasklet1, transactionManager)
-//				.build();
-//	}
-//	
-//	@Bean
-//	public Step helloTaskletStep2() {
-//		return new StepBuilder("helloTasklet2Step", jobRepository)
-//				.tasklet(helloTasklet2, transactionManager)
-//				.build();
-//	}
-//	
-//	@Bean
-//	public JobParametersValidator jobParametersValidator() {
-//		return new HelloJobParameterValidator();
-//	}
-	
-	
-//	public Step helloChunkStep() {
-//		return new StepBuilder("helloChunkStep", jobRepository)
-//				.<String, String>chunk(appConfig.getChunkSize(), transactionManager)
-//				.reader(helloReader)
-//				.processor(helloProcessorr)
-//				.writer(helloWriter)
-//				.build();
-//	}
 	
 	@Bean
 	public Step deleteOldFilesTaskletStep() {
@@ -114,6 +68,13 @@ public class SpringConfig {
 	}
 	
 	@Bean
+	public Step csvToPostgresTaskletStep() {
+		return new StepBuilder("csvToPostgresTaskletStep", jobRepository)
+				.tasklet(csvToPostgresTasklet, transactionManager)
+				.build();
+	}
+	
+	@Bean
 	public Job helloJob() {
 		System.out.println("-----");
 		System.out.println(appConfig.getApplicationName());
@@ -122,8 +83,7 @@ public class SpringConfig {
 				.start(deleteOldFilesTaskletStep())
 				.next(csvFileCheckAndMoveTaskletStep())
 				.next(csvCompareAndWriteTaskletStep())
-//				.start(helloTaskletStep1())
-//				.next(helloTaskletStep2())
+				.next(csvToPostgresTaskletStep())
 //				.next(helloChunkStep())
 //				.validator(jobParametersValidator())
 //				.listener(helloJobExecutionListner)
