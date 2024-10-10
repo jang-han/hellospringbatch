@@ -1,0 +1,132 @@
+2024-10-11 00:22:21,256 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 00:22:21,262 WARN  c.e.d.tasklet.DeleteOldFilesTasklet - ディレクトリが存在しないかアクセスできません: mocked/backup
+2024-10-11 00:22:21,667 INFO  c.e.d.tasklet.CsvToPostgresTasklet - CsvToPostgresTasklet 処理を開始します。
+2024-10-11 00:22:21,678 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 山田花子
+2024-10-11 00:22:21,679 INFO  c.e.d.tasklet.CsvToPostgresTasklet - PostgreSQLへのデータ登録と更新が完了しました。
+2024-10-11 00:30:57,136 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=山田花子, メール=hanako@example.com
+2024-10-11 00:32:01,103 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=山田花子, メール=hanako@example.com
+2024-10-11 00:33:28,022 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=山田花子, メール=hanako@example.com
+2024-10-11 00:35:12,289 INFO  c.e.d.t.CsvCompareAndWriteTasklet - OKデータ - 有効なデータが検出されました: 名前=山田花子, メール=hanako@example.com
+2024-10-11 00:40:35,318 ERROR c.e.d.t.CsvCompareAndWriteTasklet - ファイルの処理中にエラーが発生しました
+java.io.FileNotFoundException: null\20241011.ok.csv (指定されたパスが見つかりません。)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:289)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:230)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:118)
+	at java.base/java.io.FileWriter.<init>(FileWriter.java:67)
+	at com.example.demo.tasklet.CsvCompareAndWriteTasklet.execute(CsvCompareAndWriteTasklet.java:57)
+	at com.example.demo.tasklet.CsvCompareAndWriteTaskletTest.testExecute_CreatesOkNgFiles(CsvCompareAndWriteTaskletTest.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70)
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:757)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2024-10-11 00:43:07,043 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:44:36,473 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:46:50,802 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:49:17,481 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:50:47,017 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:55:21,864 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:56:19,926 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:56:20,342 INFO  c.e.d.tasklet.CsvToPostgresTasklet - CsvToPostgresTasklet 処理を開始します。
+2024-10-11 00:56:20,348 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 山田花子
+2024-10-11 00:56:20,348 INFO  c.e.d.tasklet.CsvToPostgresTasklet - PostgreSQLへのデータ登録と更新が完了しました。
+2024-10-11 00:57:10,938 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:57:10,988 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 00:58:04,403 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 00:59:09,841 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:00:53,028 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:00:53,083 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:00:53,083 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:00:53,084 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:01:55,085 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:01:55,139 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:01:55,140 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:01:55,141 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:03:07,043 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:03:07,096 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:03:07,096 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:03:07,097 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:04:05,978 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:04:06,037 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:04:06,038 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:04:06,040 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:04:06,061 INFO  c.e.d.t.CsvFileCheckAndMoveTasklet - CSVファイルがバックアップフォルダに移動されました: testFile.csv
+2024-10-11 01:04:51,061 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:04:51,115 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:04:51,116 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:04:51,117 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:04:51,117 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\backup\testFile.csv
+2024-10-11 01:04:51,141 INFO  c.e.d.t.CsvFileCheckAndMoveTasklet - CSVファイルがバックアップフォルダに移動されました: testFile.csv
+2024-10-11 01:05:55,359 WARN  c.e.d.t.CsvCompareAndWriteTasklet - CSVファイルが見つかりません: testFile.csv
+2024-10-11 01:05:55,419 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\20241011.ok.csv
+2024-10-11 01:05:55,420 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ok\oldFile.csv
+2024-10-11 01:05:55,422 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - 古いファイルを削除しました: C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\ng\oldFile.csv
+2024-10-11 01:05:55,422 INFO  c.e.d.tasklet.DeleteOldFilesTasklet - ファイルは削除されませんでした (理由: 1年未満の変更): C:\pleiades-2024-06-java-win-64bit-jre_20240626\workspace\hello-spring-batch\mocked\backup\testFile.csv
+2024-10-11 01:05:55,442 INFO  c.e.d.t.CsvFileCheckAndMoveTasklet - CSVファイルがバックアップフォルダに移動されました: testFile.csv
+2024-10-11 01:05:55,701 INFO  c.e.d.tasklet.CsvToPostgresTasklet - CsvToPostgresTasklet 処理を開始します。
+2024-10-11 01:05:55,708 INFO  c.e.d.tasklet.CsvToPostgresTasklet - 新しいレコードを追加しました: 山田花子
+2024-10-11 01:05:55,709 INFO  c.e.d.tasklet.CsvToPostgresTasklet - PostgreSQLへのデータ登録と更新が完了しました。

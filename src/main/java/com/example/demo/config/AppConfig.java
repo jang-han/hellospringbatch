@@ -33,6 +33,17 @@ public class AppConfig {
 	@Value("${app.datasource.postgres.driver-class-name}")
 	private String postgresDriverClassname;
 	
+	@Value("${app.csv.input.test}")
+    private String csvInputTest;
+
+    @Value("${app.csv.output.ok.test}")
+    private String csvOutputOkTest;
+
+    @Value("${app.csv.output.ng.test}")
+    private String csvOutputNgTest;
+
+    @Value("${app.csv.backup.test}")
+    private String csvBackupTest;
 	
 	@Value("${app.csv.input}")
 	private String csvInput;
@@ -103,5 +114,22 @@ public class AppConfig {
 	
 	public int getChunkSize() {
         return chunkSize;
+    }
+	
+	// Getters
+    public String getCsvInputTest() {
+        return csvInputTest;
+    }
+
+    public String getCsvOutputOkTest() {
+        return csvOutputOkTest;
+    }
+
+    public String getCsvOutputNgTest() {
+        return csvOutputNgTest;
+    }
+
+    public String getCsvBackupTest() {
+        return csvBackupTest;
     }
 }

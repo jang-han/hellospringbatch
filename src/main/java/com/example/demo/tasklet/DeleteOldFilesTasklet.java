@@ -65,14 +65,18 @@ public class DeleteOldFilesTasklet implements Tasklet {
                                 } else {
                                     logger.warn("ファイルの削除に失敗しました（権限の問題かファイル使用中）: {}", file.getAbsolutePath());
                                 }
+                            } else {
+                                logger.info("ファイルは削除されませんでした (理由: 1年未満の変更): {}", file.getAbsolutePath());
                             }
                         } catch (IOException e) {
-                            logger.error("ファイル属性の読み取りエラー: {}", file.getAbsolutePath(), e);
+                            logger.error("ファイル属性の読み取りエラー: {} - エラー内容: {}", file.getAbsolutePath(), e.getMessage());
                         }
                     }
+                } else {
+                    logger.warn("指定されたディレクトリにファイルが見つかりませんでした: {}", dirPath);
                 }
             } else {
-                logger.warn("ディレクトリが存在しないかアクセスできません: {}", dirPath);
+                logger.warn("ディレクトリが存在しないか、アクセスできません: {}", dirPath);
             }
         }
 

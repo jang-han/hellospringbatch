@@ -1,0 +1,4 @@
+2024-10-11 00:30:57,140 ERROR com.example.demo.dataError - データ欠落 - 名前: 佐藤健一, メール: kenichi@example.com, 身長: , 体重: 55.3
+2024-10-11 00:32:01,111 ERROR com.example.demo.dataError - データ欠落 - 名前: 佐藤健一, メール: kenichi@example.com, 身長: , 体重: 55.3
+2024-10-11 00:33:28,026 ERROR com.example.demo.dataError - データ欠落 - 名前: 佐藤健一, メール: kenichi@example.com, 身長: , 体重: 55.3
+2024-10-11 00:35:12,294 ERROR com.example.demo.dataError - データ欠落 - 名前: 佐藤健一, メール: kenichi@example.com, 身長: , 体重: 55.3
